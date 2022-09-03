@@ -6,10 +6,6 @@
 > [ICE] is a 64-bit private key block cipher, in the tradition of DES. However, unlike DES, it was designed to be secure against differential and linear cryptanalysis, and has no key complementation weaknesses or weak keys. In addition, its key size can be any multiple of 64 bits, whereas the DES key is limited to 56 bits.
 > <br/> -- <cite>Matthew Kwan, Author of the ICE encryption algorithm</cite>
 
-<br/>
-
----
-
 ## Usage
 Add this to your ```Cargo.toml```:
 
@@ -51,16 +47,10 @@ fn main() {
 
 TODO
 
-<br/>
-
----
 
 ## Original
 The ICE encryption algorithm was designed and written by Matthew Kwan, checkout his C/C++ implementations of the algorithm on his [website](http://www.darkside.com.au/ice/index.html).
 
-<br/>
-
----
 
 ## License
 **Ice-Crypt** is distributed under the terms of the GNU GENERAL PUBLIC LICENSE (Version 3).
