@@ -86,10 +86,7 @@ impl IceKey {
     pub fn decrypt_all(&self, mut ctext: Vec<u8>) -> Vec<u8> {
         let mut ptext: Vec<u8> = Vec::new();
 
-        let index = 8 - (ctext.len() % 8);
-        for _ in 0..index {
-            ctext.push(0);
-        }
+        ctext = Self::pad_vec(ctext);
 
         for chunk in ctext.chunks_exact(8) {
             for byte in self.decrypt(Vec::from(chunk)) {
@@ -103,10 +100,7 @@ impl IceKey {
     pub fn encrypt_all(&self, mut ptext: Vec<u8>) -> Vec<u8> {
         let mut ctext: Vec<u8> = Vec::new();
 
-        let index = 8 - (ptext.len() % 8);
-        for _ in 0..index {
-            ptext.push(0);
-        }
+        ptext = Self::pad_vec(ptext);
 
         for chunk in ptext.chunks_exact(8) {
             for byte in self.encrypt(Vec::from(chunk)) {
@@ -289,5 +283,19 @@ impl IceKey {
         }
 
         kb
+    }
+
+    fn pad_vec(mut vec: Vec<u8>) -> Vec<u8> {
+        let index = 8 - (vec.len() % 8);
+
+        if index == 8 {
+            return vec;
+        }
+
+        for _ in 0..index {
+            vec.push(0);
+        }
+
+        vec
     }
 }
