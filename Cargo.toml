@@ -2,7 +2,7 @@
 name = "ice-crypt"
 version = "1.0.0"
 edition = "2021"
-license = "GPL-3"
+license = "GPL-3.0-or-later"
 description = "Rust implementation of the ICE encryption algorithm"
 repository = "https://github.com/Groruk/ice-crypt"
 keywords = ["ICE", "algorithm", "cryptography", "block-cipher"]
